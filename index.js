@@ -7,15 +7,16 @@ let attemptCount = 0; //tracks number of attempts
 
 const loginAttempt = (passwordAttempt) => {
   attemptCount++;
+  //lock account after 3 failed attempts
   if (attemptCount > 3) {
-    return "Account locked due to too many failed login attempts.";
+    return "Account locked due to too many failed login attempts";
   }
-  //password check
+  //password is correct
   if (passwordAttempt === userInfo. password){
-    return  "Login successful.";
+    return  "Login successful";
   } else {
-    return `Login attempt ${attemptCount}:Login failed`;
-
+    return `Attempt ${attemptCount}:Login failed`;
+//wrong password but attempts less than 3
   }
 };
 return loginAttempt; //return the nested function
@@ -25,10 +26,10 @@ const user = {
   password: "burgers212"
 };
 const login = createLoginTracker(user);
-console.log(login("fries333")); // Login attempt 1: Login failed
-console.log(login("soda456")); // Login attempt 2: Login failed
-console.log(login("burger212")); // Login attempt 3: Login failed
-console.log(login("burgers212")); // Account locked due to too many failed login attempts.
+console.log(login("fries333")); //  attempt 1: Login failed
+console.log(login("soda456")); // attempt 2: Login failed
+console.log(login("burger212")); // attempt 3: Login failed
+console.log(login("burgers212")); // Account locked due to too many failed login attempts
 
 const user2 = {
   username: "john",
